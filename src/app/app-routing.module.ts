@@ -1,18 +1,27 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CourseViewerComponent} from './course-viewer/course-viewer.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { CourseNavigatorComponent } from "./course-navigator/course-navigator.component";
 
 const routes: Routes = [
-  {path: 'courses', component: CourseViewerComponent},
-  {path: 'courses/:courseId/modules', component: CourseViewerComponent},
-  {path: 'courses/:courseId/modules/:moduleId/lessons', component: CourseViewerComponent},
-  {path: 'courses/:courseId/modules/:moduleId/lessons/:lessonId/topics', component: CourseViewerComponent},
-  {path: 'courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets', component: CourseViewerComponent},
+  { path: "courses", component: CourseNavigatorComponent },
+  { path: "courses/:courseId/modules", component: CourseNavigatorComponent },
+  {
+    path: "courses/:courseId/modules/:moduleId/lessons",
+    component: CourseNavigatorComponent,
+  },
+  {
+    path: "courses/:courseId/modules/:moduleId/lessons/:lessonId/topics",
+    component: CourseNavigatorComponent,
+  },
+  {
+    path:
+      "courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets",
+    component: CourseNavigatorComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

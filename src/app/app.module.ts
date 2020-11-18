@@ -7,6 +7,7 @@ import { CourseNavigatorComponent } from './course-navigator/course-navigator.co
 import {FormsModule} from '@angular/forms';
 import {CourseService} from '../services/course-service';
 import {ModuleService} from '../services/module-service';
+import {LessonService} from '../services/lesson-service';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { ModuleListComponent } from './module-list/module-list.component';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
@@ -29,7 +30,7 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
     FormsModule
   ],
   providers: [
-    CourseService, ModuleService
+    CourseService, ModuleService, LessonService
   ],
   bootstrap: [AppComponent]
 })

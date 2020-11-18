@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cs4550-f20-client-angular-jannunzi'`, () => {
+  it(`should have as title 'cs4550-f20-client-angular-jjew'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cs4550-f20-client-angular-jannunzi');
+    expect(app.title).toEqual('cs4550-f20-client-angular-jjew');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cs4550-f20-client-angular-jannunzi app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('cs4550-f20-client-angular-jjew app is running!');
   });
 });
