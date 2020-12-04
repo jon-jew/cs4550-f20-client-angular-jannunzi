@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cs4550-f20-client-angular-jannunzi": {
+    "cs4550-f20-client-angular-jjew": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cs4550-f20-client-angular-jannunzi",
+            "outputPath": "dist/cs4550-f20-client-angular-jjew",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cs4550-f20-client-angular-jannunzi:build"
+            "browserTarget": "cs4550-f20-client-angular-jjew:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cs4550-f20-client-angular-jannunzi:build:production"
+              "browserTarget": "cs4550-f20-client-angular-jjew:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cs4550-f20-client-angular-jannunzi:build"
+            "browserTarget": "cs4550-f20-client-angular-jjew:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cs4550-f20-client-angular-jannunzi:serve"
+            "devServerTarget": "cs4550-f20-client-angular-jjew:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cs4550-f20-client-angular-jannunzi:serve:production"
+              "devServerTarget": "cs4550-f20-client-angular-jjew:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "cs4550-f20-client-angular-jannunzi",
+  "defaultProject": "cs4550-f20-client-angular-jjew",
   "cli": {
     "analytics": "4ddd5574-7575-426d-b164-1c97af2817b2"
   }

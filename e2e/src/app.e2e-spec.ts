@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('cs4550-f20-client-angular-jannunzi app is running!');
+    expect(page.getTitleText()).toEqual('cs4550-f20-client-angular-jjew app is running!');
   });
 
   afterEach(async () => {
