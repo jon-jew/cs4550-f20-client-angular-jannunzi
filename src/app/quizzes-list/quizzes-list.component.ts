@@ -15,7 +15,6 @@ export class QuizzesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      console.log("quizParams", params);
       this.courseId = params.courseId;
       this.service.findAllQuizzes().then((quizzes) => (this.quizzes = quizzes));
     });
