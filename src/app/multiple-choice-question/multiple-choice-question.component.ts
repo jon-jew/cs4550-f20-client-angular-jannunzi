@@ -1,31 +1,41 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-
-// import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-
+import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-multiple-choice-question',
-  templateUrl: './multiple-choice-question.component.html',
-  styleUrls: ['./multiple-choice-question.component.css']
+  selector: "app-multiple-choice-question",
+  templateUrl: "./multiple-choice-question.component.html",
+  styleUrls: ["./multiple-choice-question.component.css"],
 })
 export class MultipleChoiceQuestionComponent implements OnInit {
+  constructor(private route: ActivatedRoute) {}
 
-  // Input means that the variable is being passed as a reference (with square brackets)
   @Input()
-  question = {_id: '', title: '', question: '', choices: [], correct: '', answer: '' };
+  question = {
+    _id: "",
+    title: "",
+    type: "",
+    choices: [],
+    correct: "",
+    question: "",
+  };
+  @Input()
+  answer = "";
+  @Output()
+  answerChange = new EventEmitter<string>();
+  submitAnswer = () => this.answerChange.emit(this.answer);
+  @Input()
   grading = false;
-  answer = '';
-  // faCheck = faCheck; faTimes = faTimes;
 
-  grade = (b: boolean) => this.grading = b;
+  select = (event: any) => {
+    if (!this.grading) {
+      this.answer = event.target.value;
+      this.answerChange.emit(this.answer);
+    }
+  };
 
-  constructor(private route: ActivatedRoute) { }
+  grade = () => {
+    this.grading = true;
+  };
 
-  ngOnInit(): void {
-    // this.route.params.subscribe(params => {
-    //   console.log('multipleChoiceParams', params);
-    // });
-  }
-
+  ngOnInit(): void {}
 }
