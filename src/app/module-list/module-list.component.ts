@@ -12,12 +12,12 @@ export class ModuleListComponent implements OnInit {
   modules = [];
   lessons = [];
   course = "";
-  selectedModule = { }
+  selectedModule = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private moduleService: ModuleService,
-    private lessonService: LessonService,
+    private lessonService: LessonService
   ) {}
 
   selectModule = (module) => {
