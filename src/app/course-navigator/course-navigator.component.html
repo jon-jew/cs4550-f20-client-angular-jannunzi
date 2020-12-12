@@ -26,17 +26,12 @@
     </ul>
   </div>
   <div class="col-3">
-    <!-- <ul class="list-group">
-      <li class="list-group-item active">Modules</li>
-      <li *ngFor="let module of modules" class="list-group-item">
-        {{ module.title }}
-        <button ()="deleteModule(module)">Delete</button>
+    <ul id="when">
+      <li *ngFor="let why of what">
+        <span class="why">{{why}}</span>
+        <span class="what" (click)="does(why)">what</span>
       </li>
-      <li class="list-group-item">
-        <button (click)="createModuleForCourse(selectedCourse)">Create</button>
-      </li>
-    </ul> -->
-    <app-module-list></app-module-list>
-    <app-lesson-tabs></app-lesson-tabs>
+    </ul>
+    <span id="anything" (click)="maybe('anything')">where</span>
   </div>
 </div>

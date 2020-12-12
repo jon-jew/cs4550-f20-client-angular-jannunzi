@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { ModuleService } from "../../services/module-service";
-import { LessonService } from "../../services/lesson-service";
+import {ActivatedRoute} from '@angular/router';
+import {LessonService} from '../../services/lesson-service';
 
 @Component({
   selector: 'app-lesson-tabs',
@@ -9,33 +8,32 @@ import { LessonService } from "../../services/lesson-service";
   styleUrls: ['./lesson-tabs.component.css']
 })
 export class LessonTabsComponent implements OnInit {
-  modules = [];
-  lessons = [];
-  course = '';
-  selectedLesson = {};
+
+
+
+  lessons: any;
+  courseId = '';
+  moduleId = '';
+  lessonId = '';
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private moduleService: ModuleService,
-    private lessonService: LessonService,
-  ) {}
-  
-  selectLesson = (lesson) => {
-    this.selectedLesson = lesson;
-  };
+    private lessonService: LessonService
+  ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      console.log(params);
-      const moduleId = params.moduleId;
-      this.course = params.courseId;
-      if (typeof moduleId !== "undefined") {
-        this.lessonService
-          .findLessonsForModule(moduleId)
-          .then((lessons) => {
-            this.lessons = lessons
-            console.log(lessons);
-          });
+    this.activatedRoute.params.subscribe(params => {
+      // console.log('ParamsLessons', params);
+      this.moduleId = params.moduleId;
+      this.courseId = params.courseId;
+      if (this.moduleId !== 'undefined' && this.moduleId !== '') {
+        this.lessonService.findLessonsForModule(this.moduleId)
+        .then(lessons => this.lessons = lessons);
       }
+      if (typeof this.lessonId !== 'undefined') {
+        this.lessonId = params.lessonId;
+      }
+      // console.log('LESSONS', params);
     });
   }
 

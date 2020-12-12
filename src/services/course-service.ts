@@ -4,10 +4,10 @@ import { Injectable } from "@angular/core";
 export class CourseService {
   fetchAllCourses = () =>
     fetch(
-      "https://wbdv-generic-server.herokuapp.com/api/jjew/courses"
+      "https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses"
     ).then((response) => response.json());
   createCourse = () =>
-    fetch("https://wbdv-generic-server.herokuapp.com/api/jjew/courses", {
+    fetch("https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses", {
       method: "POST",
       body: JSON.stringify({ title: "New Course" }),
       headers: {
@@ -16,7 +16,7 @@ export class CourseService {
     }).then((response) => response.json());
   updateCourse = (course) =>
     fetch(
-      `https://wbdv-generic-server.herokuapp.com/api/jjew/courses/${course._id}`,
+      `https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses/${course._id}`,
       {
         method: "PUT",
         body: JSON.stringify(course),
@@ -27,7 +27,7 @@ export class CourseService {
     ).then((response) => response.json());
   deleteCourse = (course) =>
     fetch(
-      `https://wbdv-generic-server.herokuapp.com/api/jjew/courses/${course._id}`,
+      `https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses/${course._id}`,
       {
         method: "DELETE",
       }

@@ -1,40 +1,34 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { ModuleService } from "../../services/module-service";
-import { LessonService } from "../../services/lesson-service";
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ModuleService} from '../../services/module-service';
 
 @Component({
-  selector: "app-module-list",
-  templateUrl: "./module-list.component.html",
-  styleUrls: ["./module-list.component.css"],
+  selector: 'app-module-list',
+  templateUrl: './module-list.component.html',
+  styleUrls: ['./module-list.component.css']
 })
 export class ModuleListComponent implements OnInit {
-  modules = [];
-  lessons = [];
-  course = "";
-  selectedModule = {};
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private moduleService: ModuleService,
-    private lessonService: LessonService
-  ) {}
+  modules: any;
+  moduleId = '';
+  courseId = '';
 
-  selectModule = (module) => {
-    this.selectedModule = module;
-    this.lessonService
-      .findLessonsForModule(module)
-      .then((lessons) => (this.lessons = lessons));
-  };
+  constructor(private activatedRoute: ActivatedRoute,
+              private moduleService: ModuleService) { }
+
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      const courseId = params.courseId;
-      this.course = params.courseId;
-      if (typeof courseId !== "undefined") {
-        this.moduleService
-          .findModulesForCourseId(courseId)
-          .then((modules) => (this.modules = modules));
+    // Register the activated route - subscribe to event changes
+    this.activatedRoute.params.subscribe(params => {
+      // console.log('Params', params);
+      this.courseId = params.courseId;
+      if (this.courseId !== 'undefined' && this.courseId !== '') {
+        this.moduleService.findModulesForCourseId(this.courseId)
+          .then(modules => this.modules = modules);
+      }
+      if (this.moduleId !== 'undefined') {
+        this.moduleId = params.moduleId;
       }
     });
   }
+
 }

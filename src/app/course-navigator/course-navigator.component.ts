@@ -46,7 +46,9 @@ export class CourseNavigatorComponent implements OnInit {
     course.editing = false;
     this.courseService.updateCourse(course);
   }
-
+  what = ['does', 'this', 'do']
+  maybe = (it) => this.what.push(it);
+  does = (nothing) => this.what = this.what.filter(nada => nada !== nothing);
   ngOnInit(): void {
     this.courseService.fetchAllCourses()
       .then(courses => this.courses = courses)

@@ -13,3 +13,11 @@
 .wbdv-color-dark-green {
   color: darkgreen;
 }
+
+.wbdv-color-black {
+  color: black;
+}
+
+.wbdv--margin-right-5 {
+  margin-right: 5px;
+}

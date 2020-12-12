@@ -8,28 +8,18 @@ import { QuestionService } from "../../services/question-service";
   styleUrls: ["./quiz.component.css"],
 })
 export class QuizComponent implements OnInit {
-  questions = [];
+  questions: any;
   quizId = "";
   constructor(private svc: QuestionService, private route: ActivatedRoute) {}
 
-  submitQuiz = () => {
-    fetch(`http://localhost:3000/api/quizzes/${this.quizId}/attempts`, {
-      method: "POST",
-      body: JSON.stringify(this.questions),
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
-  };
-
   ngOnInit(): void {
     this.route.params.subscribe((ps) => {
+      console.log("ps", ps);
       this.quizId = ps.quizId;
-      this.svc
-        .findQuestionsForQuiz(this.quizId)
-        .then((qs) => (this.questions = qs));
+      this.svc.findQuestionsForQuiz(this.quizId).then((qs) => {
+        this.questions = qs;
+        console.log(qs);
+      });
     });
   }
 }

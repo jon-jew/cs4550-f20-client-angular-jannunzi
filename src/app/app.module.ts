@@ -20,6 +20,7 @@ import { QuestionService } from "../services/question-service";
 import { MultipleChoiceQuestionComponent } from "./multiple-choice-question/multiple-choice-question.component";
 import { TrueFalseQuestionComponent } from "./true-false-question/true-false-question.component";
 import { CommonModule } from "@angular/common";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { CommonModule } from "@angular/common";
     MultipleChoiceQuestionComponent,
     TrueFalseQuestionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, FontAwesomeModule],
   providers: [
     CourseService,
     ModuleService,
